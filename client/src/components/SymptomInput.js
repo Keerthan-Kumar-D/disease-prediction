@@ -7,11 +7,13 @@ function SymptomInput({ onPredict, loading }) {
   const [selected, setSelected] = useState([]);
   const [suggestions, setSuggestions] = useState([]);
 
-  useEffect(() => {
-    axios.get("http://localhost:5000/api/predict/symptoms").then((res) => {
-      setAllSymptoms(res.data);
-    });
-  }, []);
+  const API = import.meta.env.VITE_API_URL;
+
+ useEffect(() => {
+   axios.get(`${API}/api/predict/symptoms`).then((res) => {
+     setAllSymptoms(res.data);
+   });
+ }, []);
 
   const handleSearch = (e) => {
     const val = e.target.value.toLowerCase();
