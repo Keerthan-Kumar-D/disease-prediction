@@ -129,4 +129,5 @@ const styles = {
   footer: { textAlign: "center", color: "#888", fontSize: 12, marginTop: 32 },
 };
 
+console.log("API URL:", process.env.REACT_APP_API_URL);
 export default App;
