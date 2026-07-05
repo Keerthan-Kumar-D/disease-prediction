@@ -6,27 +6,10 @@ const predictRoutes = require("./routes/predict");
 
 const app = express();
 
-const allowedOrigins = [
-  "http://localhost:3000",
-  "https://disease-prediction-brown.vercel.app"
-];
-
-app.use(cors({
-  origin: function (origin, callback) {
-    // Allow requests with no origin (Postman, curl, etc.)
-    if (!origin) return callback(null, true);
-
-    if (allowedOrigins.includes(origin)) {
-      return callback(null, true);
-    }
-
-    return callback(new Error("Not allowed by CORS"));
-  }
-}));
+// Temporary CORS configuration (allows all origins)
+app.use(cors());
 
 app.use(express.json());
-
-
 
 // Root route
 app.get("/", (req, res) => {
@@ -36,7 +19,7 @@ app.get("/", (req, res) => {
   });
 });
 
-// Prediction route
+// Routes
 app.use("/api/predict", predictRoutes);
 
 const PORT = process.env.PORT || 5000;
