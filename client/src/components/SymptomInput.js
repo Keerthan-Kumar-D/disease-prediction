@@ -9,9 +9,7 @@ function SymptomInput({ onPredict, loading }) {
   const [selected, setSelected] = useState([]);
   const [suggestions, setSuggestions] = useState([]);
 
-  const API = import.meta.env.VITE_API_URL;
-
- useEffect(() => {
+  useEffect(() => {
    axios.get(`${API}/api/predict/symptoms`).then((res) => {
      setAllSymptoms(res.data);
    });
