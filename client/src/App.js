@@ -3,7 +3,7 @@ import axios from "axios";
 import SymptomInput from "./components/SymptomInput";
 import ResultChart from "./components/ResultChart";
 
-const API = import.meta.env.VITE_API_URL;
+const API = process.env.REACT_APP_API_URL;
 
 function App() {
   const [predictions, setPredictions] = useState([]);
